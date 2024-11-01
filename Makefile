@@ -35,6 +35,7 @@ dependencies:
 		file \
 		locales \
 		libacl1
+	locale-gen en_US.UTF-8
 
 # Clone or update the Yocto repository
 .PHONY: download
@@ -62,8 +63,7 @@ setup:
 
 .PHONY: configure
 configure: setup
-	./build/wpa-supplicant/load_wpa_supplicant.sh poky/meta/recipes-connectivity/wpa-supplicant/wpa-supplicant/wpa_supplicant.conf-sane
-	bitbake-layers add-layer $(YOCTO_DIR)/meta-raspberrypi
+#	./build/wpa-supplicant/load_wpa_supplicant.sh poky/meta/recipes-connectivity/wpa-supplicant/wpa-supplicant/wpa_supplicant.conf-sane
 
 
 # Build the Yocto image (core-image-minimal in this case)
