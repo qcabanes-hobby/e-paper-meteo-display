@@ -16,6 +16,9 @@ setup:
 	@git clone https://github.com/crops/poky-container.git
 	@sed -i '' 's/SPECIFY_ME/$(DISTRO)/' poky-container/Dockerfile
 	@docker build -f poky-container/Dockerfile --platform=$(PLATFORM) -t crops/poky:selfbuilt poky-container
+	@docker run --platform=$(PLATFORM) -v poky-volume:/workdir --workdir=/workdir --rm crops/poky:selfbuilt git clone -b $(YOCTO_RELEASE) $(YOCTO_REPO)
+	@docker run --platform=$(PLATFORM) -v poky-volume:/workdir --workdir=/workdir --rm crops/poky:selfbuilt git clone -b $(YOCTO_RELEASE) $(RASPBERRYPI_LAYER_REPO)
+	@docker run --platform=$(PLATFORM) -v poky-volume:/workdir --workdir=/workdir --rm crops/poky:selfbuilt git clone -b $(YOCTO_RELEASE) $(OPENEMBEDDED_LAYER_REPO)
 
 .PHONY: run
 run:
