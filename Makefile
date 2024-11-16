@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 PLATFORM := linux/arm64
-DISTRO := debian-10
+DISTRO := ubuntu-22.04
 YOCTO_RELEASE := kirkstone
 YOCTO_REPO := git://git.yoctoproject.org/poky
 RASPBERRYPI_LAYER_REPO := git://git.yoctoproject.org/meta-raspberrypi
